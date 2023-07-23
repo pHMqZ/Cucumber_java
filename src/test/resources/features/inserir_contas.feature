@@ -7,17 +7,11 @@ Gostaria de cadastrar contas
 Para que eu possa distribuir meu dinheiro de uma forma mais organizada
 
 Contexto:
-	Dado que estou acessando a aplicação
-	Quando informo o usuário "phillipmarq@hotmail.com"
-	E a senha "Alceu1228!"
-	E seleciono entrar
-	Então visualizo a página inicial
-	Quando seleciono Contas
-	E seleciono Adicionar
+	Dado que desejo adicionar uma conta
+	
 
 Esquema do Cenário: Deve validar regras de cadastro
-	Quando informar a conta "<conta>"
-	E selecionar Salvar
+	Quando adiciono a conta "<conta>"
 	Então recebo a mensagem "<mensagem>"
 
 Exemplos:

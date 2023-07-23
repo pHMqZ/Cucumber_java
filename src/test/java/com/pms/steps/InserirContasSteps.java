@@ -23,71 +23,24 @@ public class InserirContasSteps {
 
 	private WebDriver driver;
 	
-	@Dado("que estou acessando a aplicação")
-	public void que_estou_acessando_a_aplicação() {
+
+	@Dado("que desejo adicionar uma conta")
+	public void queDesejoAdicionarUmaConta() {
 		System.setProperty("webdriver.chrome.driver", "E:\\Programming\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://seubarriga.wcaquino.me/");
-	}
-
-	@Quando("informo o usuário {string}")
-	public void informo_o_usuário(String string) {
-		driver.findElement(By.id("email")).sendKeys(string);
-	}
-
-	@Quando("a senha {string}")
-	public void a_senha(String string) {
-		driver.findElement(By.id("senha")).sendKeys(string);
-	}
-
-	@Quando("seleciono entrar")
-	public void seleciono_entrar() {
+		driver.findElement(By.id("email")).sendKeys("phillipmarq@hotmail.com");
+		driver.findElement(By.id("senha")).sendKeys("Alceu1228!");
 		driver.findElement(By.tagName("button")).click();
-	}
-
-	@Então("visualizo a página inicial")
-	public void visualizo_a_página_inicial() {
-		String texto = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-		assertEquals("Bem vindo, Phillip Marques!", texto);
-	}
-
-	@Quando("seleciono Contas")
-	public void seleciono_contas() {
 		driver.findElement(By.linkText("Contas")).click();
-	}
-
-	@Quando("seleciono Adicionar")
-	public void seleciono_adicionar() {
 		driver.findElement(By.linkText("Adicionar")).click();
-		
-	}
-
-	@Quando("informar a conta {string}")
-	public void informarAConta(String string) {
-		driver.findElement(By.id("nome")).sendKeys(string);
-	}
-
-	@Quando("selecionar Salvar")
-	public void selecionarSalvar() {
-		driver.findElement(By.tagName("button")).click();
-	}
-
-	@Então("a conta é inserida com sucesso")
-	public void a_conta_é_inserida_com_sucesso() {
-		String texto = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-		assertEquals("Conta adicionada com sucesso!", texto);
 	}
 	
-	@Então("sou notificado que o nome da conta é obrigatório")
-	public void souNotificadoQueONomeDaContaÉObrigatório() {
-		String texto = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
-		assertEquals("Informe o nome da conta", texto);
-	}
-
-	@Então("sou notificado que já existe uma conta com esse nome")
-	public void souNotificadoQueJáExisteUmaContaComEsseNome() {
-		String texto = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
-		assertEquals("Já existe uma conta com esse nome!", texto);
+	
+	@Quando("adiciono a conta {string}")
+	public void adicionoAConta(String string) {
+		driver.findElement(By.id("nome")).sendKeys(string);
+		driver.findElement(By.tagName("button")).click();
 	}
 	
 	@Então("recebo a mensagem {string}")

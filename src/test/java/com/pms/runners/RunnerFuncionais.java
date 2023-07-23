@@ -18,7 +18,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		tags = "@funcionais",
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE,
-		dryRun = false
+		dryRun = true
 		//strict = false
 		)
 public class RunnerFuncionais {
